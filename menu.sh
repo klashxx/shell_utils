@@ -104,10 +104,10 @@ menuExit() {
   }
 
 menu() {
+  # piece based on eval function for navigation.Quite simple but handy ..
   while true; do
     clear
     case ${Answer} in
-
       "") menuMain;;
 
        0) [ "${current}" = "menu" ] && exit 0
@@ -117,7 +117,6 @@ menu() {
           current="menu${sufix}"
           eval ${current} 2>/dev/null
           [ $? -ne 0 ] && menuExit;;
-    
     esac
     keyRead
   done
