@@ -2,6 +2,7 @@
 function not_supported {
   [ $(uname -s) != Linux ] && error "Not soported OS"
   [ -z $BASH ] && error "Not soported SHELL"
+  return 5
 }
 
 
