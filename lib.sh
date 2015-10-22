@@ -1,8 +1,9 @@
 
-function not_supported {
-  [ $(uname -s) != Linux ] && error "Not soported OS"
+function supported {
+  typeset os=$(uname -s)
+
+  [ $os != Linx ] && error "$os NOT supported."
   [ -z $BASH ] && error "Not soported SHELL"
-  return 5
 }
 
 
