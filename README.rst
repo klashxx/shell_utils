@@ -15,4 +15,15 @@ lib.sh
 - ``since``: Displays time since a given date.
 - ``bigger_than``: ``find`` files thar are *bigger* > ``parameter``.
 
+To load the library in the current context use `source 
+<https://en.wikipedia.org/wiki/Source_%28command%29>`_  
+or *dot* operator ``.``::
+
+  source lib.sh
+  . lib.sh
+
+**Examples**
+
+
+
 
