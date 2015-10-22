@@ -2,7 +2,7 @@
 function supported {
   typeset os=$(uname -s)
 
-  [ $os != Linx ] && error "$os NOT supported."
+  [ $os != Linux ] && error "$os NOT supported."
   [ -z $BASH ] && error "Not soported SHELL"
 }
 
