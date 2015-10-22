@@ -8,7 +8,7 @@ lib.sh
 
 ``shell`` library including:
 
-- ``not_supported``: Environment sanity check.
+- ``supported``: Environment sanity check.
 - ``log``: Simplistic logger function.
 - ``error``: logs a critical message.
 - ``check``: Test external util ``exit``.
@@ -23,6 +23,15 @@ or *dot* operator ``.``::
   . lib.sh
 
 **Examples**
+
+*supported* ::
+
+  $ if ! supported 2>/dev/null;then echo "Not supported env"; fi
+  Not supported env
+
+  $ supported 
+  [2015-10-23T00:01:01] critical: Darwin NOT supported.
+
 
 *log* ::
 
