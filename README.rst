@@ -13,6 +13,6 @@ lib.sh
 - ``error``: logs a critical message.
 - ``check``: Test external util ``exit``.
 - ``since``: Displays time since a given date.
-- ``bigger_than``: Uses ``find`` to get files ``size`` > ``parameter``.
+- ``bigger_than``: ``find`` files thar are *bigger* > ``parameter``.
 
 
