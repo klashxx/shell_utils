@@ -40,9 +40,14 @@ function since {
 
 
 function bigger_than {
-  typeset size=${1:-0}
+  typeset cmd=${1:-0}
 
-  find . -size +${size}c \
+  size=${cmd//[a-zA-Z]/}
+  block=${cmd//[0-9]/}
+
+  [ -z $block ] && block=c
+
+  find . -size +${size}${block} \
          -type f \
          -exec \
             ls -C -A -l \
