@@ -25,7 +25,7 @@ function ok_exit {
 }
 
 
-function valida {
+function check {
   typeset exit_code=$1
 
   if [ $exit_code -ne 0 ]; then
