@@ -81,3 +81,23 @@ function bigger_than {
 
                 printf(MASK, size, $NF, $6, $7)}'
 } 2>/dev/null
+
+
+function older_than {
+  typeset ref="$*"
+  typeset value=${ref% *} 
+  typeset mode=${ref#* }
+  
+  case "${mode}" in
+    mins) cmd="-mmin +$value";;
+    days) cmd="-mtime +$value";;
+       *) cmd="! -newer \"${ref}\" ! -name \"${ref}\""
+  esac
+
+  eval find . \
+       -type f \
+       $cmd \
+       -exec \
+          ls -C -A -l \
+          --time-style=\"+%Y-%m-%d %H:%M:%S\" {} \\\;
+} 2>/dev/null
