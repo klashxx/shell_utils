@@ -1,19 +1,26 @@
+
+function not_supported {
+  [ $(uname -s) != Linux ] && error "Not soported OS"
+  [ -z $BASH ] && error "Not soported SHELL"
+}
+
+
 function log {
   typeset time_stamp=$(date +'%Y-%m-%dT%H:%M:%S')
   echo  "[${time_stamp}] $@"
 }
 
 
-function salida_error {
+function error {
   typeset msj=${1:-""}
   typeset code=${2:-5}
 
   log "critical: ${msj}"
-  exit ${code}
+  return $code
 } >&2
 
 
-function salida_ok {
+function ok_exit {
   exit 0
 }
 
@@ -22,7 +29,7 @@ function valida {
   typeset exit_code=$1
 
   if [ $exit_code -ne 0 ]; then
-    salida_error "runtime error"
+    error "runtime error"
   fi
 }
 
@@ -52,8 +59,8 @@ function bigger_than {
          -exec \
             ls -C -A -l \
             --time-style="+%Y-%m-%d %H:%M:%S" {} \; 2>/dev/null| \
-         sort -r -k 5n | \
-         awk 'BEGIN{
+         sort -r -k 5n  2>/dev/null| \
+         gawk 'BEGIN{
                  MASK="%10s => [%-90s] (%s)\n"}
 
                NR==1{
@@ -71,4 +78,4 @@ function bigger_than {
                   size=sprintf("%d KBs", size/1024)
 
                 printf(MASK, size, $NF, $6, $7)}'
-} 
+} 2>/dev/null
