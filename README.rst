@@ -24,7 +24,7 @@ or *dot* operator ``.``::
 
 **Examples**
 
-*log*::
+*log* ::
   $ log "Test message"
   [2015-10-22T23:39:27] Test message
 
