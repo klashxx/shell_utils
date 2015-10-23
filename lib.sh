@@ -119,3 +119,33 @@ function tree  {
               gsub(/[^\/]*\//,"--",$0)
               print $NF}' 
 } 2>/dev/null
+
+
+function vdf {
+  typeset hook="${1:-}"
+
+  df ${hook} \
+     --block-size=1K \
+     --local \
+     --print-type \
+     --portability \
+     --exclude-type=tmpfs 2>/dev/null| \
+     sort -k5nr 2>/dev/null | \
+     gawk 'BEGIN{
+             MASK="%-20s => [%14s] [%3s] (%s)\n"}
+
+           NR==1{
+             printf(MASK,"Mount","Available","Use","Type")
+             while (i++ < 53) printf "="
+             print ""}
+           
+           /%/{
+             available=$5
+             if (available > 1024*1024)
+               available=sprintf("%.2f GBs", available/1024/1024)
+             else if (available > 1024)
+               available=sprintf("%d MBs", available/1024)
+             else
+               available=sprintf("%d KBs", available)
+             printf(MASK, $NF,available,$(NF-1),$2)}'
+} 2>/dev/null
