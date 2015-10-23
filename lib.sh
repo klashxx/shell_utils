@@ -1,4 +1,3 @@
-
 function separator {
   typeset long=${1:-100}
 
@@ -27,11 +26,6 @@ function error {
   log "critical: ${msj}"
   return $code
 } >&2
-
-
-function ok_exit {
-  exit 0
-}
 
 
 function check {
