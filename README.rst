@@ -116,7 +116,6 @@ or *dot* operator ``.``::
 
 *vdf* ::
 
-  $ older_than 300 mins
   $ vdf
   Mount                => [     Available] [Use] (Type)
   =====================================================
