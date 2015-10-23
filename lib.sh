@@ -1,4 +1,11 @@
 
+function separator {
+  typeset long=${1:-100}
+
+  gawk -v long=$long 'BEGIN{while (++i<=long+0)printf "-";print ""}'
+}
+
+
 function supported {
   typeset os=$(uname -s)
 
