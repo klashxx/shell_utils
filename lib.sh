@@ -108,3 +108,14 @@ function older_than {
           ls -C -A -l \
           --time-style=\"+%Y-%m-%d %H:%M:%S\" {} \\\;
 } 2>/dev/null
+
+
+function tree  {
+  typeset hook="${1:-.}"
+
+  find $hook -type d -print 2>/dev/null |\
+  gawk  -F\/ '{for (i=1;i<NF;i++)
+                printf("%"length($i)"s","|")
+              gsub(/[^\/]*\//,"--",$0)
+              print $NF}' 
+} 2>/dev/null
