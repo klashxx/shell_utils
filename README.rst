@@ -8,13 +8,16 @@ lib.sh
 
 ``shell`` library including:
 
+- ``separator``: Prints a line *div*.
 - ``supported``: Environment sanity check.
 - ``log``: Simplistic logger function.
-- ``error``: logs a critical message.
+- ``error``: Logs a critical message over ``stderr`` and return an error code. 
 - ``check``: Test external util ``exit``.
 - ``since``: Displays time since a given date.
 - ``bigger_than``: ``find`` files *bigger* than ``parameter``.
 - ``older_than``: ``find`` files *older* than other archive or given time.
+- ``tree``: A pseudo ``tree`` **DOS** emulator.
+- ``vdf``: *VISUAL* ``df`` *for humans*.
 
 To load the **library** in the current context use `source 
 <https://en.wikipedia.org/wiki/Source_%28command%29>`_  
@@ -71,7 +74,7 @@ or *dot* operator ``.``::
        3 KBs => [./.git/hooks/update.sample                     ] (2015-10-22)
        4 KBs => [./.git/hooks/pre-rebase.sample                 ] (2015-10-22)
 
-*bigger_than* ::
+*older_than* ::
 
   $ older_than 300 mins
   -rw-rw-r--. 1 klashxx klashxx 23 2015-10-22 18:01:30 ./.git/HEAD
@@ -99,3 +102,31 @@ or *dot* operator ``.``::
   -rw-r--r--. 1 oracle oinstall 12464 1996-05-29 21:25:00 ./network/mesg/nmrus.msg
   -rw-r--r--. 1 oracle oinstall 4658 1996-05-29 21:26:00 ./network/mesg/snlus.msg
 
+*tree* ::
+
+  $ tree
+  .
+  |--t1
+  | |----t1
+  | | |------t00
+  | | |------t01
+  | |----t0
+  |--t2
+  | |----t1
+
+*vdf* ::
+
+  $ older_than 300 mins
+  $ vdf
+  Mount                => [     Available] [Use] (Type)
+  =====================================================
+  /mnt/hgfs            => [     98.46 GBs] [58%] (fuse.vmhgfs-fuse)
+  /u01                 => [     10.10 GBs] [46%] (ext4)
+  /                    => [      8.72 GBs] [47%] (ext4)
+  /dev                 => [       859 MBs] [ 0%] (devtmpfs)
+  /boot                => [       258 MBs] [43%] (ext4)
+
+  $ vdf /u*
+  Mount                => [     Available] [Use] (Type)
+  =====================================================
+  /u01                 => [     10.10 GBs] [46%] (ext4)
