@@ -1,3 +1,5 @@
+shopt -s extglob
+
 function separator {
   typeset long=${1:-100}
 
@@ -107,9 +109,9 @@ function than {
   fi
   
   case "${mode}" in
-    mins) cmd="-mmin $part$value";;
-    days) cmd="-mtime $part$value";;
-       *) cmd="$pred -newer \"${ref}\" ! -name \"${ref}\""
+    min*(s|utes) ) cmd="-mmin $part$value";;
+         day*(s) ) cmd="-mtime $part$value";;
+                *) cmd="$pred -newer \"${ref}\" ! -name \"${ref}\""
   esac
 
   eval find . \
