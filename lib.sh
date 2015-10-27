@@ -101,7 +101,6 @@ function than {
   typeset mode=${ref#* }
 
   if [ $part = "+" ];then
-    echo entro
     pred="!"
   else
     pred=""
