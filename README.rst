@@ -74,33 +74,40 @@ or *dot* operator ``.``::
        3 KBs => [./.git/hooks/update.sample                     ] (2015-10-22)
        4 KBs => [./.git/hooks/pre-rebase.sample                 ] (2015-10-22)
 
-*older_than* ::
+*older than* ::
 
-  $ older_than 300 mins
+  $ older than 300 mins
   -rw-rw-r--. 1 klashxx klashxx 23 2015-10-22 18:01:30 ./.git/HEAD
   -rwxrwxr-x. 1 klashxx klashxx 398 2015-10-22 18:01:23 ./.git/hooks/pre-applypatch.sample
   -rwxrwxr-x. 1 klashxx klashxx 1348 2015-10-22 18:01:23 ./.git/hooks/pre-push.sample
   -rwxrwxr-x. 1 klashxx klashxx 1239 2015-10-22 18:01:23 ./.git/hooks/prepare-commit-msg.sample
 
-
-  $ ls -l
-  total 24
-  -rwxrwxr-x. 1 klashxx klashxx  492 oct 22 18:01 date_validator.py
-  -rwxrwxr-x. 1 klashxx klashxx  687 oct 22 18:01 diffdate.pl
-  -rwxrwxr-x. 1 klashxx klashxx 2143 oct 23 00:36 lib.sh
-  -rwxrwxr-x. 1 klashxx klashxx 1367 oct 22 18:01 menu.sh
-  -rw-rw-r--. 1 klashxx klashxx 2141 oct 23 00:35 README.rst
-  -rwxrwxr-x. 1 klashxx klashxx  217 oct 22 18:01 tree.sh
-  $ older_than menu.sh 
+  $ older than menu.sh 
   -rwxrwxr-x. 1 klashxx klashxx 492 2015-10-22 18:01:30 ./date_validator.py
   -rwxrwxr-x. 1 klashxx klashxx 217 2015-10-22 18:01:30 ./tree.sh
   -rwxrwxr-x. 1 klashxx klashxx 687 2015-10-22 18:01:30 ./diffdate.pl
 
-  $ older_than 7000 days
+  $ older than 7000 days
   -rw-r--r--. 1 oracle oinstall 1472 1995-08-04 09:12:00 ./slax/mesg/pxus.msg
   -rw-r--r--. 1 oracle oinstall 5895 1996-05-29 21:25:00 ./network/mesg/nmpus.msg
   -rw-r--r--. 1 oracle oinstall 12464 1996-05-29 21:25:00 ./network/mesg/nmrus.msg
   -rw-r--r--. 1 oracle oinstall 4658 1996-05-29 21:26:00 ./network/mesg/snlus.msg
+
+*newer than* ::
+
+  $ newer than 10 mins
+  -rwxrwxr-x. 1 klashxx klashxx 3468 2015-10-27 20:32:14 ./lib.sh
+
+  $ newer than 3 days
+  -rw-rw-r--. 1 klashxx klashxx 61 2015-10-27 20:28:15 ./.profile
+  -rw-rw-r--. 1 klashxx klashxx 655 2015-10-27 20:28:15 ./LICENSE.txt
+ -rwxrwxr-x. 1 klashxx klashxx 3468 2015-10-27 20:32:14 ./lib.sh
+
+  $ newer than menu.sh
+  -rw-rw-r--. 1 klashxx klashxx 4384 2015-10-23 17:57:48 ./README.rst
+  -rw-rw-r--. 1 klashxx klashxx 61 2015-10-27 20:28:15 ./.profile
+  -rw-rw-r--. 1 klashxx klashxx 655 2015-10-27 20:28:15 ./LICENSE.txt
+  -rwxrwxr-x. 1 klashxx klashxx 3468 2015-10-27 20:32:14 ./lib.sh
 
 *tree* ::
 
