@@ -84,15 +84,33 @@ function bigger_than {
 } 2>/dev/null
 
 
-function older_than {
-  typeset ref="$*"
+function older {
+   than "+" ${@:2}
+}
+
+
+function newer {
+   than "-" ${@:2}
+}
+
+
+function than {
+  typeset part=$1
+  typeset ref="${@:2}"
   typeset value=${ref% *} 
   typeset mode=${ref#* }
+
+  if [ $part = "+" ];then
+    echo entro
+    pred="!"
+  else
+    pred=""
+  fi
   
   case "${mode}" in
-    mins) cmd="-mmin +$value";;
-    days) cmd="-mtime +$value";;
-       *) cmd="! -newer \"${ref}\" ! -name \"${ref}\""
+    mins) cmd="-mmin $part$value";;
+    days) cmd="-mtime $part$value";;
+       *) cmd="$pred -newer \"${ref}\" ! -name \"${ref}\""
   esac
 
   eval find . \
