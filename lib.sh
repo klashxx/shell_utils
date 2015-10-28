@@ -1,5 +1,3 @@
-shopt -s extglob
-
 function separator {
   typeset long=${1:-100}
 
