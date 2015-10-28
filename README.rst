@@ -15,7 +15,8 @@ lib.sh
 - ``check``: Test external util ``exit``.
 - ``since``: Displays time since a given date.
 - ``bigger_than``: ``find`` files *bigger* than ``parameter``.
-- ``older_than``: ``find`` files *older* than other archive or given time.
+- ``older than``: ``find`` files *older* than other archive or given time.
+- ``newer than``: ``find`` files *newer* than other archive or given time.
 - ``tree``: A pseudo ``tree`` **DOS** emulator.
 - ``vdf``: *VISUAL* ``df`` *for humans*.
 
