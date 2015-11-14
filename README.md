@@ -7,21 +7,21 @@ On a daily basis *tiny* `shell` utilities.
 
 `shell` **library** including:
 
-* separator: Prints a line *div*.
-* supported: Environment sanity check.
-* log: Simplistic logger function.
-* error: Logs a critical message over stderr and return an error code.
-* check: Test external util exit.
-* since: Displays time since a given date.
-* bigger_than: find files *bigger* than parameter.
-* older than: find files *older* than other archive or given time.
-* newer than: find files *newer* than other archive or given time.
-* tree: A pseudo tree **DOS** emulator.
-* vdf: *VISUAL* `df` *for humans*.
+* `separator`: Prints a line *div*.
+* `supported`: Environment sanity check.
+* `log`: Simplistic `logger` function.
+* `error`: Logs a **critical** message over `stderr` and return an error code.
+* `check`: Test external util exit.
+* `since`: Displays *time since* a given date.
+* `bigger_than`: **find** files *bigger* than parameter.
+* `older than`: **find** files *older* than other archive or given time.
+* `newer than`: **find** files *newer* than other archive or given time.
+* `tree`: A pseudo tree **DOS** emulator.
+* `vdf`: *VISUAL* `df` *for humans*.
 
 [![][libdemo-img]][libdemo-url]
 
-To load the **library** in the current context use
+To load the **library** in the *current context* use
 [source](https://en.wikipedia.org/wiki/Source_%28command%29) or *dot* operator ``.`` :
 
     source lib.sh
