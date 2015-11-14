@@ -29,7 +29,7 @@ To load the **library** in the current context use
 
 #### Examples
 
-__*`supported`*__
+##### *`supported`*
 
     $ if ! supported 2>/dev/null;then echo "Not supported env"; fi
     Not supported env
@@ -37,12 +37,12 @@ __*`supported`*__
     $ supported
     [2015-10-23T00:01:01] critical: Darwin NOT supported.
 
-__*`log`*__
+##### *`log`*
 
     $ log "Test message"
     [2015-10-22T23:39:27] Test message
 
-__*`since`*__
+##### *`since`*
 
     $ since 20120328
     1304 days 00 hours 11 mins 08 seconds
@@ -56,7 +56,7 @@ __*`since`*__
     $ since 2015-10-12
     11 days 00 hours 11 mins 46 seconds
 
-__*`bigger_than`*__
+##### *`bigger_than`*
 
     $ bigger_than 150M
           Size => [File                                           ] (Timestamp)
@@ -74,7 +74,7 @@ __*`bigger_than`*__
          3 KBs => [./.git/hooks/update.sample                     ] (2015-10-22)
          4 KBs => [./.git/hooks/pre-rebase.sample                 ] (2015-10-22)
 
-__*`older than`*__
+##### *`older than`*
 
     $ older than 300 mins
     -rw-rw-r--. 1 klashxx klashxx 23 2015-10-22 18:01:30 ./.git/HEAD
@@ -93,7 +93,7 @@ __*`older than`*__
     -rw-r--r--. 1 oracle oinstall 12464 1996-05-29 21:25:00 ./network/mesg/nmrus.msg
     -rw-r--r--. 1 oracle oinstall 4658 1996-05-29 21:26:00 ./network/mesg/snlus.msg
 
-__*`newer than`*__
+##### *`newer than`*
 
     $ newer than 10 mins
     -rwxrwxr-x. 1 klashxx klashxx 3468 2015-10-27 20:32:14 ./lib.sh
@@ -109,7 +109,7 @@ __*`newer than`*__
     -rw-rw-r--. 1 klashxx klashxx 655 2015-10-27 20:28:15 ./LICENSE.txt
     -rwxrwxr-x. 1 klashxx klashxx 3468 2015-10-27 20:32:14 ./lib.sh
 
-__*`tree`*__
+##### *`tree`*
 
     $ tree
     .
@@ -121,7 +121,7 @@ __*`tree`*__
     |--t2
     | |----t1
 
-__*`vdf`*__
+##### *`vdf`*
 
     $ vdf
     Mount                => [     Available] [Use] (Type)
