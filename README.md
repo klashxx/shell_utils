@@ -13,7 +13,7 @@ On a daily basis *tiny* `shell` utilities.
 * error: Logs a critical message over stderr and return an error code.
 * check: Test external util exit.
 * since: Displays time since a given date.
-* bigger_than: find files *bigger* than parameter.
+* bigger_than: find files *bigger* than paramete∏r.
 * older than: find files *older* than other archive or given time.
 * newer than: find files *newer* than other archive or given time.
 * tree: A pseudo tree **DOS** emulator.
