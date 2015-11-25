@@ -7,6 +7,7 @@ On a daily basis *tiny* `shell` utilities.
 
 `shell` **library** including:
 
+
 * `separator`: Prints a line *div*.
 * `supported`: Environment sanity check.
 * `log`: Simplistic `logger` function.
