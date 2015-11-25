@@ -1,4 +1,4 @@
-## shell_utils [![][license-svg]][license-url] [![][bash-svg]][bash-url]
+## shell_utils [![][license-svg]][license-url] [![][bash-svg]][bash-url] [![][build-svg]][build-url]
 
 On a daily basis *tiny* `shell` utilities.
 
@@ -143,6 +143,12 @@ To load the **library** in the *current context* use
 [license-svg]: https://img.shields.io/badge/license-GPLv3-red.svg
 [bash-url]: https://www.gnu.org/software/bash/
 [bash-svg]: https://img.shields.io/badge/bash-4.2.47_tested-brightgreen.svg
+[build-svg]: https://travis-ci.org/klashxx/shell_utils.svg?branch=master
+[build-url]: https://travis-ci.org/klashxx/shell_utils
 [libdemo-url]: https://github.com/klashxx/shell_utils
 [libdemo-img]: https://github.com/klashxx/shell_utils/blob/master/demo.gif
+
+
+
+
 
