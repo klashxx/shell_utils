@@ -37,6 +37,15 @@ function check {
 }
 
 
+function rgrep {
+  local pattern="${1:-""}"
+  local path="${2:-"."}"
+  local include="${3:-""}"
+  
+  grep  -r "${pattern}"  --color --include=*${include} $path 2>/dev/null
+}
+
+
 function since {
   typeset date="${1}"
 
