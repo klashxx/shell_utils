@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 
 function separator {
-  typeset long=${1:-100}
+  local long=${1:-100}
 
   gawk -v long=$long 'BEGIN{while (++i<=long+0)printf "-";print ""}'
 }
 
 
 function supported {
-  typeset os=$(uname -s)
+  local os=$(uname -s)
 
   [ $os != Linux ] && error "$os NOT supported."
   [ -z $BASH ] && error "Not soported SHELL"
@@ -16,14 +16,14 @@ function supported {
 
 
 function log {
-  typeset time_stamp=$(date +'%Y-%m-%dT%H:%M:%S')
+  local time_stamp=$(date +'%Y-%m-%dT%H:%M:%S')
   echo  "[${time_stamp}] $@"
 }
 
 
 function error {
-  typeset msj=${1:-""}
-  typeset code=${2:-5}
+  local msj=${1:-""}
+  local code=${2:-5}
 
   log "critical: ${msj}"
   return $code
@@ -31,7 +31,7 @@ function error {
 
 
 function check {
-  typeset exit_code=$1
+  local exit_code=$1
 
   if [ $exit_code -ne 0 ]; then
     error "runtime error"
@@ -39,8 +39,17 @@ function check {
 }
 
 
+function rgrep {
+  local pattern="${1:-""}"
+  local path="${2:-"."}"
+  local include="${3:-""}"
+  
+  grep  -r "${pattern}"  --color --include=*${include} $path 2>/dev/null
+}
+
+
 function since {
-  typeset date="${1}"
+  local date="${1}"
 
   echo $(($(date +"%s")-$(date -d "${date}" +"%s")))| \
       gawk '{printf "%d days %02d hours %02d mins %02d seconds\n" ,
@@ -52,7 +61,7 @@ function since {
 
 
 function bigger_than {
-  typeset cmd=${1:-0}
+  local cmd=${1:-0}
 
   size=${cmd//[a-zA-Z]/}
   block=${cmd//[0-9]/}
@@ -97,10 +106,10 @@ function newer {
 
 
 function than {
-  typeset part=$1
-  typeset ref="${@:2}"
-  typeset value=${ref% *}
-  typeset mode=${ref#* }
+  local part=$1
+  local ref="${@:2}"
+  local value=${ref% *} 
+  local mode=${ref#* }
 
   if [ $part = "+" ];then
     pred="!"
@@ -124,7 +133,7 @@ function than {
 
 
 function tree  {
-  typeset hook="${1:-.}"
+  local hook="${1:-.}"
 
   find $hook -type d -print 2>/dev/null |\
   gawk  -F\/ '{for (i=1;i<NF;i++)
@@ -135,7 +144,7 @@ function tree  {
 
 
 function vdf {
-  typeset hook="${1:-}"
+  local hook="${1:-}"
 
   df ${hook} \
      --block-size=1K \
