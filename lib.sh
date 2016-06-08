@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 function separator {
   local long=${1:-100}
 
@@ -80,7 +82,7 @@ function bigger_than {
                  while (i++ < 120) printf "="
                  print ""}
 
-               {                
+               {
                 size=$5
                 if (size > 1024*1024*1024)
                   size=sprintf("%.2f GBs", size/1024/1024/1024)
@@ -114,11 +116,11 @@ function than {
   else
     pred=""
   fi
-  
+
   case "${mode}" in
-    min*(s|utes) ) cmd="-mmin $part$value";;
-         day*(s) ) cmd="-mtime $part$value";;
-                *) cmd="$pred -newer \"${ref}\" ! -name \"${ref}\""
+    mins ) cmd="-mmin $part$value";;
+    days ) cmd="-mtime $part$value";;
+        *) cmd="$pred -newer \"${ref}\" ! -name \"${ref}\""
   esac
 
   eval find . \
@@ -137,7 +139,7 @@ function tree  {
   gawk  -F\/ '{for (i=1;i<NF;i++)
                 printf("%"length($i)"s","|")
               gsub(/[^\/]*\//,"--",$0)
-              print $NF}' 
+              print $NF}'
 } 2>/dev/null
 
 
@@ -158,7 +160,7 @@ function vdf {
              printf(MASK,"Mount","Available","Use","Type")
              while (i++ < 53) printf "="
              print ""}
-           
+
            /%/{
              available=$5
              if (available > 1024*1024)

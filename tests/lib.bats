@@ -30,20 +30,3 @@ source $(dirname $BATS_TEST_DIRNAME)/lib.sh
   assert_success
 }
 
-
-
-
-#@test "invoking foo with a nonexistent file prints an error" {
-#  run foo nonexistent_filename
-#  echo $status
-#  [ "$status" -eq 1 ]
-#  [ "$output" = "foo: no such file 'nonexistent_filename'" ]
-#}
-#
-#
-#@test "ls: empty list" {
-#    run nv ls
-#    assert_success
-#    assert_equal "Available environment(s):" "${lines[0]}"
-#    assert_equal "" "${lines[1]}"
-#}
