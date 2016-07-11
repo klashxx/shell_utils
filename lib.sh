@@ -59,7 +59,8 @@ function tophist {
         }
         !/.\//{
           CMD[$2]++
-          count++}
+          count++
+        }
         END{
           for (a in CMD){
             c++
