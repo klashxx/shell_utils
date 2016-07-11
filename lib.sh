@@ -43,8 +43,32 @@ function rgrep {
   local pattern="${1:-""}"
   local path="${2:-"."}"
   local include="${3:-""}"
-  
+
   grep  -r "${pattern}"  --color --include=*${include} $path 2>/dev/null
+}
+
+
+function tophist {
+  history | \
+  gawk 'BEGIN{
+          if (PROCINFO["version"] < "4.0.0") {
+            print "Requires gawk >= 4"
+            exit
+          }
+          PROCINFO["sorted_in"] = "@val_num_desc"
+        }
+        !/.\//{
+          CMD[$2]++
+          count++}
+        END{
+          for (a in CMD){
+            c++
+            printf("%02d   %02d   %04.1f%s   %s\n",c,CMD[a],CMD[a]/count*100, "%", a)
+            if (c==10){
+              exit
+            }
+          }
+        }'
 }
 
 
@@ -108,7 +132,7 @@ function newer {
 function than {
   local part=$1
   local ref="${@:2}"
-  local value=${ref% *} 
+  local value=${ref% *}
   local mode=${ref#* }
 
   if [ $part = "+" ];then
